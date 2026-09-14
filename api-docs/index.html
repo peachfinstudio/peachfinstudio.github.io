@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Peachfin Studio API Docs | Quickstart</title>
+    <meta
+      name="description"
+      content="Quick start for the Peachfin Studio text-to-speech API: generate speech, check job status, and download narration files for product launches and creator workflows."
+    />
+    <meta
+      name="keywords"
+      content="Peachfin API docs, text-to-speech API, speech synthesis API, AI voice API, narration API"
+    />
+    <link rel="canonical" href="https://peachfinstudio.github.io/api-docs/" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      code, pre { white-space: pre-wrap; }
+      pre {
+        background: #0b1220;
+        border: 1px solid #2d3a58;
+        border-radius: 10px;
+        padding: 12px;
+        overflow-x: auto;
+      }
+      .small { color: #97a5c7; }
+    </style>
+  </head>
+  <body>
+    <main class="doc-wrap" style="padding-top: 28px;">
+      <a href="../" class="btn">← Back to main page</a>
+      <h1>Peachfin Studio API Quickstart</h1>
+      <p class="small">This is a compact API reference page hosted on GitHub Pages. For full official API documentation, go to <a href="https://peachfin.studio/docs">peachfin.studio/docs</a>.</p>
+
+      <h2>Base URL</h2>
+      <pre>https://api.peachfin.studio</pre>
+
+      <h2>Authentication</h2>
+      <pre>Authorization: Bearer YOUR_PEARCHFIN_API_KEY</pre>
+
+      <h2>Create speech job</h2>
+      <pre>curl -X POST https://api.peachfin.studio/v1/speech/jobs \
+  -H "Authorization: Bearer $PEACHFIN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "input": "Your startup demo is now ready.",
+    "voice": "af_heart",
+    "response_format": "mp3"
+  }'</pre>
+
+      <h2>Get status</h2>
+      <pre>curl https://api.peachfin.studio/v1/speech/jobs/JOB_ID \
+  -H "Authorization: Bearer $PEACHFIN_API_KEY"</pre>
+
+      <h2>Download audio</h2>
+      <pre>curl https://api.peachfin.studio/v1/speech/jobs/JOB_ID/audio \
+  -H "Authorization: Bearer $PEACHFIN_API_KEY" \
+  --output voiceover.mp3</pre>
+
+      <h2>Related Peachfin Studio workflows</h2>
+      <p>
+        <a href="https://peachfin.studio/studio" target="_blank" rel="noopener noreferrer">Use the TTS Studio</a> to build narration by hand,
+        and
+        <a href="https://peachfin.studio/video-studio" target="_blank" rel="noopener noreferrer">Video Studio</a> for visual launch assets.
+      </p>
+
+      <p class="small">Use this page as a lightweight mirror for outreach and SEO while keeping the canonical API docs on your production domain.</p>
+    </main>
+  </body>
+</html>
